@@ -1,0 +1,417 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* disable double_tap zoom on mobile devices */
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    /* strange margin-right occurs when vw<500px */
+    overflow-x: hidden;
+}
+
+body {
+    /* 底部颜色 */
+    background-color: rgba(233,233,233);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI Adjusted", "Segoe UI", "Liberation Sans", 'Roboto', sans-serif;
+    font-size: 1.5em;
+    /* 顶部文字颜色 */
+    color: #faf5f5;
+    /* 禁用右键和选中 */
+    -webkit-user-select: none; /* Chrome, Safari, Opera */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+
+/* 欢迎页面 */
+#welcome-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s;
+  }
+
+
+
+/* 音乐控制按钮 */
+.volume-control {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(249, 249, 249);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 8888;
+    cursor: pointer;
+  }
+
+  .volume-control:hover{
+    background-color: #e5e2e2;
+  }
+  
+  .volume-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url("./img/volume_icon.png");
+    background-size: cover;
+    animation: rotate-icon 5s infinite linear;
+  }
+  
+  @keyframes rotate-icon {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+
+
+
+
+
+
+
+
+  
+
+.wrapper {
+    position: relative;
+}
+
+#wrapper-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("img/klee1.gif");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: contain;
+    z-index: -30;
+}
+
+#wrapper-background-filter {
+    /* 顶部颜色 */
+    background-color: rgba(244, 117, 117,0.9);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -20;
+}
+
+.preload {
+    position: absolute;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+}
+
+#content {
+    margin: 2vh auto;
+    width: 80vw;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+h2 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+hr {
+    border-bottom: 6px dashed white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+#title-container {
+    display: flex;
+    justify-content: center;
+}
+
+#page-title {
+    text-align: left;
+}
+
+#title-img {
+    height: 4em;
+}
+
+#language-selector {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 40px;
+    /* 语言选择按钮 · 颜色 */
+    background-color: #f7b7b3; 
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    text-align-last: center;
+    padding: 10px;
+    margin: 20px 0;
+    /* 语言选择按钮 · 文字颜色 */
+    color: rgb(38, 0, 63);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    outline: none;
+}
+
+/* 语言选择按钮 · 悬浮颜色 */
+#language-selector:hover {
+    box-shadow: 0 0 10px #ce7171;
+}   
+
+#language-selector option {
+    text-align: center;
+    background-color: #fadddb;
+    color: rgb(118, 114, 114);
+}
+
+
+#subtitle-seperator {
+    margin-bottom: 10px;
+}
+
+#counter-container {
+    text-align: center;
+    font-weight: bold;
+    margin: 64px 0;
+}
+
+#counter-container>p {
+    text-shadow: #f77676 0 0 10px, #f77676 0 0 10px, #f77676 0 0 10px, #f77676 0 0 10px, #f77676 0 0 10px;
+}
+
+/* 计数器文字颜色 */
+#local-counter {
+    color: #474646;
+    font-size: 2em;
+}
+
+#counter-button {
+    /* 动画触发按钮颜色 */
+    background-color: #b93535;
+    border: none;
+    border-radius: 16px;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    margin-top: 16px;
+
+    position: relative;
+    overflow: hidden;
+    box-shadow: 6px 7px 40px -4px rgba(43, 42, 42, 0.2);
+    cursor: pointer;
+    transition: background-color 0.1s ease-in-out, scale 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/* 动画触发按钮的悬挂颜色 */
+#counter-button:hover {
+    background-color: #a71212;
+}
+
+#counter-button:active {
+    scale: 0.95;
+}
+
+#counter-button span {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #ffffff50;
+
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+
+    animation: ripple 1s;
+    opacity: 0;
+}
+
+@keyframes ripple {
+    from {
+        opacity: 1;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(10);
+    }
+}
+
+#footer {
+    background-color: rgb(253,250,244);
+    color: black;
+    padding: 16px 10vw;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Klee banner 图片样式 */
+#klee-card {
+    min-width: 256px;
+    max-width: 720px;
+    height: auto;
+    border-top-left-radius: 2% 3.5%;
+    border-top-right-radius: 2% 3.5%;
+    border-bottom-left-radius: 2% 3.5%;
+    border-bottom-right-radius: 2% 3.5%;
+}
+
+.footer-icon {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 2em;
+}
+
+#twitter-footer-icon {
+    color: #1d9bf0;
+}
+
+#github-footer-icon {
+    color: #000000;
+}
+
+.footer-icon-text {
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: bold;
+    margin-left: 6px;
+}
+
+/* #footer-repository-text {
+    margin-top: 32px;
+    margin-bottom: 16px;
+} */
+
+@media screen and (max-width: 2240px) {
+    .grid-item {
+        width: calc(20% - 10px);
+    }
+}
+
+@media screen and (max-width: 1920px) {
+    .grid-item {
+        width: calc(25% - 10px);
+    }
+}
+
+@media screen and (max-width: 1512px) {
+    body {
+        font-size: 1.25em;
+    }
+
+    #subtitle-seperator {
+        margin-top: 3px;
+        margin-bottom: 11px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .grid-item {
+        width: calc(100% / 3 - 10px);
+    }
+
+    #footer {
+        flex-wrap: wrap;
+    }
+
+    #footer-text {
+        text-align: center;
+    }
+
+    #footer-header-text {
+        margin-bottom: 8px;
+    }
+
+    #footer-repository-text {
+        margin-top: 16px;
+        margin-bottom: 8px;
+    }
+}
+
+@media screen and (max-width: 1265px) {
+    body {
+        font-size: 1em;
+    }
+
+    #subtitle-seperator {
+        margin-top: 6px;
+        margin-bottom: 12px;
+    }
+}
+
+@media screen and (max-width: 854px) {
+    .grid-item {
+        width: calc(50% - 10px);
+    }
+}
+
+@media screen and (max-width: 510px) {
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 1.25em;
+    }
+
+    #subtitle-seperator {
+        margin-top: 8px;
+        margin-bottom: 13px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .grid-item {
+        width: calc(100% - 10px);
+    }
+}
+
+@media screen and (max-width: 430px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    #subtitle-seperator {
+        margin-top: 10px;
+    }
+}
+
+#access-via-mirror,
+#access-via-pages {
+    font-size: small;
+}

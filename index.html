@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title id="doc-title">DaDaDa~</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+    <!-- 样式文件 | CSS file -->
+    <link rel="stylesheet" href="style.css" type="text/css" />
+
+    <!-- 外部字体 | Outside font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+    <link href="img/favicon.ico" rel="shortcut icon">
+</head>
+
+<body>
+    <!--欢迎页面 | Welcome page-->
+    <div id="welcome-page">
+        <h2>Click Anywhere to Continue</h2>
+        <br />
+        <img src="./img/welcome.gif">
+    </div>
+
+    <!-- 音乐播放按钮 | Music Contronl -->
+    <div id="volume-control" class="volume-control">
+        <i id="volume-icon" class="volume-icon"></i>
+    </div>
+
+
+    <!--主体部分 | Main page-->
+    <main class="wrapper">
+        <div id="wrapper-background-filter"></div>
+        <div id="wrapper-background"></div>
+        <img src="img/klee1.gif" class="preload" />
+        <img src="img/klee2.gif" class="preload" />
+        <div id="content">
+            <div id="title-container">
+                <h1 id="page-title">Welcome to Klee dadada~ &nbsp;</h1>
+                <img id="title-img" alt="img of Klee" src="img/favicon.png">
+            </div>
+            <select id="language-selector">
+                <option value="cn" selected>中文</option>
+                <option value="ja">日本語</option>
+                <option value="en">English</option>
+            </select>
+
+
+            <hr id="subtitle-seperator" />
+            <h2 id="page-descriptions">
+                The website for Klee, the <del>annoying</del> cutest genius Genshin
+                Impact character out there.
+            </h2>
+            <div id="counter-container">
+                <h3 id="counter-descriptions">Klee has been Dadada~ed for</h3>
+                <br />
+                <br />
+                <p id="local-counter">0</p>
+                <br />
+                <br />
+                <p id="counter-unit">times</p>
+                <button id="counter-button">
+                    Squish the Klee~!
+                </button>
+            </div>
+            <hr />
+            <div id="grid">
+                <noscript>Your browser does not support JavaScript or JavaScript has been
+                    disabled.<br />This website relies on JavaScript, so please enable it
+                    or use another browser.</noscript>
+            </div>
+        </div>
+    </main>
+
+    <!-- 尾部部分 | Footer -->
+    <div id="footer">
+        <img id="klee-card" loading="lazy" src="img/card.jpg" alt="" /> <!--由JS控制src的具体路径-->
+        <div id="footer-text">
+            
+            <p id="footer-repository-text">
+                You can check out the GitHub repository here:
+            </p>
+            <p>
+                <!--这里填写本网站的Github地址-->
+                <a href="https://github.com/genshinKlee/KleeDadada" target="_blank"><iconify-icon icon="mdi:github" id="github-footer-icon"
+                        class="footer-icon"></iconify-icon><span class="footer-icon-text"
+                        id="footer-repository-text-2">Web_OF_Kleedadada</span></a>
+            </p>
+
+            
+            <br/>
+            <p id="footer-repository-text3">
+                This website is based on the repository source code changes
+            </p>
+            <p>
+                <!--source code-->
+                <a href="https://github.com/duiqt/herta_kuru" target="_blank"><iconify-icon icon="mdi:github" id="github-footer-icon"
+                        class="footer-icon"></iconify-icon><span class="footer-icon-text"
+                        id="footer-repository-text-4">SourceCode's repository</span></a>
+            </p>
+
+
+            <br/>
+            <p id="credits-gif">Klee gif made by</p>
+            <p>
+                <a href="https://twitter.com/Seseren_kr" target="_blank"><iconify-icon icon="mdi:twitter"
+                        id="twitter-footer-icon" class="footer-icon"></iconify-icon><span
+                        class="footer-icon-text">@Seseren_kr</span></a>
+            </p>
+
+
+        </div>
+    </div>
+    <script src="./script.js" async></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T303QPC9L9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-T303QPC9L9');
+    </script>
+</body>
+
+</html>
