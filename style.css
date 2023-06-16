@@ -10,15 +10,18 @@
 
 body {
     /* 底部颜色 */
-    background-color: rgba(233,233,233);
+    background-color: rgba(233, 233, 233);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI Adjusted", "Segoe UI", "Liberation Sans", 'Roboto', sans-serif;
     font-size: 1.5em;
     /* 顶部文字颜色 */
     color: #faf5f5;
     /* 禁用右键和选中 */
-    -webkit-user-select: none; /* Chrome, Safari, Opera */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
+    -webkit-user-select: none;
+    /* Chrome, Safari, Opera */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
     user-select: none;
 }
 
@@ -30,7 +33,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    /* background-color: rgba(0, 0, 0, 0.8); */
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -39,48 +42,195 @@ body {
     z-index: 9999;
     opacity: 1;
     transition: opacity 0.5s;
-  }
+}
+
+#welcome-page img {
+    width: 30%;
+}
 
 
 
-/* 音乐控制按钮 */
-.volume-control {
+
+
+
+/* 功能区大盒子 */
+.buttons-container {
     position: fixed;
     top: 20px;
     left: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 8888;
+}
+
+
+
+
+
+/* 播放按钮 */
+.volume-control {
     width: 40px;
     height: 40px;
-    background-color: rgb(249, 249, 249);
+    background-color: rgba(249, 249, 249,0.5);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 8888;
     cursor: pointer;
-  }
+    /* 按钮和右边按钮间隔20px */
+    margin-right: 20px;
+}
 
-  .volume-control:hover{
+.volume-control:hover {
     background-color: #e5e2e2;
-  }
-  
-  .volume-icon {
-    display: inline-block;
+}
+
+.volume-icon {
     width: 24px;
     height: 24px;
     background-image: url("./img/volume_icon.png");
     background-size: cover;
     animation: rotate-icon 5s infinite linear;
-  }
-  
-  @keyframes rotate-icon {
+}
+
+@keyframes rotate-icon {
     from {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
+
     to {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
-  
+}
+
+
+
+
+/* 更新日志按钮 */
+.changelog-button {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(249, 249, 249,0.5);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.changelog-button:hover {
+    background-color: #e5e2e2;
+}
+
+.changelog-icon {
+    width: 24px;
+    height: 24px;
+    background-image: url("./img/log_icon.png");
+    /* 替换为你的更新日志图标的路径 */
+    background-size: cover;
+}
+
+
+
+
+/* 日志弹窗样式 */
+.changelog-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 70%;
+    background-color: rgba(8, 8, 8, 0.85);
+    /* 淡红色背景 */
+    z-index: 9999;
+    overflow: auto;
+    border-radius: 5%;
+}
+
+.changelog-content #logtitle {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.changelog-content #groupdescribe{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgb(220, 134, 212)
+}
+
+.changelog-content #logtext {
+    text-align: left;
+    font-size: 20px;
+}
+
+
+@media (max-width: 768px) {
+    /* 小屏幕设备的弹窗样式 */
+    #changelog-modal {
+        width: 90%;
+        height: 70%;
+    }
+
+    .changelog-content #logtitle {
+        text-align: center;
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+
+    .changelog-content #groupdescribe{
+        text-align: center;
+        font-size: 10px;
+        font-weight: 400;
+        color: rgb(220, 134, 212)
+    }
+    
+    .changelog-content #logtext {
+        text-align: left;
+        font-size: 10px;
+    }
+}
+
+.changelog-content {
+    /* 粉色背景 */
+    color: #ffffff;
+    /* 白色文字 */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.fade-in {
+    animation: fade-in 0.5s ease-in-out forwards;
+}
+
+.fade-out {
+    animation: fade-out 0.5s ease-in-out forwards;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
 
 
 
@@ -89,7 +239,8 @@ body {
 
 
 
-  
+
+
 
 .wrapper {
     position: relative;
@@ -108,7 +259,7 @@ body {
 
 #wrapper-background-filter {
     /* 顶部颜色 */
-    background-color: rgba(244, 117, 117,0.9);
+    background-color: rgba(244, 117, 117, 0.9);
     position: absolute;
     width: 100%;
     height: 100%;
@@ -159,22 +310,31 @@ hr {
     height: 4em;
 }
 
-#language-selector {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#container select {
+    margin: 0 10px;
+}
+
+#language-selector,
+#mode-selector {
     width: 200px;
     height: 40px;
-    /* 语言选择按钮 · 颜色 */
-    background-color: #f7b7b3; 
+    background-color: #f7b7b3;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     text-align: center;
     text-align-last: center;
     padding: 10px;
-    margin: 20px 0;
-    /* 语言选择按钮 · 文字颜色 */
+    margin: 0 10px;
     color: rgb(38, 0, 63);
     appearance: none;
     -webkit-appearance: none;
@@ -183,10 +343,11 @@ hr {
     outline: none;
 }
 
-/* 语言选择按钮 · 悬浮颜色 */
-#language-selector:hover {
+#language-selector:hover,
+#mode-selector:hover {
     box-shadow: 0 0 10px #ce7171;
-}   
+}
+
 
 #language-selector option {
     text-align: center;
@@ -271,7 +432,7 @@ hr {
 }
 
 #footer {
-    background-color: rgb(253,250,244);
+    background-color: rgb(253, 250, 244);
     color: black;
     padding: 16px 10vw;
     display: flex;
@@ -376,7 +537,7 @@ hr {
 
 @media screen and (max-width: 854px) {
     .grid-item {
-        width: calc(50% - 10px);
+        width: calc(20% - 10px);
     }
 }
 
