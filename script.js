@@ -20,11 +20,20 @@ document.addEventListener("click", function (event) {
 });
 
 function removeWelcomePageAndPlayMusic() {
+    // 图片消除
     var welcomePage = document.getElementById("welcome-page");
     welcomePage.style.opacity = 0;
     setTimeout(function () {
         welcomePage.style.display = "none";
     }, 500);
+
+    // 欢迎页面遮罩消除
+    var welcomeCover = document.getElementById("welcome-cover");
+    welcomeCover.style.opacity = 0;
+    setTimeout(function () {
+        welcomeCover.style.display = "none";
+    }, 500);
+    
 
     if (!isMusicPlayed && !isWelcomed) {
         playBackgroundMusic();
@@ -610,5 +619,7 @@ const content = `
 
 logTitle.innerHTML = `<h2>${title}</h2>`;
 logText.innerHTML = `<p>${content}</p>`;
+
+
 
 
